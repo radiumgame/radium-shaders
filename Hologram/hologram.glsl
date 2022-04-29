@@ -11,10 +11,10 @@ uniform float transparencyLevel;
 void main() {
     fragColor = rgba(col);
     
-    vec2 uv = tile(HologramTexture, vec2(1, hologramLinesTiling));
-    uv.y -= time * hologramSpeed;
+    vec2 newUV = tile(HologramTexture, vec2(1, hologramLinesTiling));
+    newUV.y -= time * hologramSpeed;
 
-    vec4 hologramLines = texture(HologramTexture, uv);
+    vec4 hologramLines = texture(HologramTexture, newUV);
     float alpha = (hologramLines.r + hologramLines.g + hologramLines.b) / 3.0;
     fragColor.a = alpha / transparencyLevel;
 }

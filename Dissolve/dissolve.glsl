@@ -12,6 +12,6 @@ void main() {
     float noise = perlin(sample);
     float cutoff = worldPosition.y + noise;
     float alpha = step(heightCutoff, cutoff);
-    fragColor = texture(MainTex, texture_coordinate);
+    fragColor = texture(MainTex, uv);
     fragColor.a = alpha;
 }
